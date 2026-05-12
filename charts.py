@@ -73,8 +73,9 @@ def make_main_chart(df: pd.DataFrame) -> go.Figure:
         height=850,
         template="plotly_dark",
         xaxis_rangeslider_visible=False,
-        legend=dict(orientation="h", yanchor="bottom", y=1.01, xanchor="right", x=1),
-        margin=dict(l=40, r=40, t=60, b=20),
+        legend=dict(orientation="h", yanchor="bottom", y=1.01, xanchor="right", x=1, font=dict(size=10)),
+        margin=dict(l=20, r=10, t=50, b=10),
+        autosize=True,
     )
     return fig
 

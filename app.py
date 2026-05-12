@@ -11,11 +11,12 @@ st.set_page_config(
     page_title="株価分析ツール",
     page_icon="📈",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 st.markdown("""
 <style>
+/* ── PC デフォルト ── */
 .metric-card {
     background: #1e1e2e;
     border-radius: 10px;
@@ -27,6 +28,47 @@ st.markdown("""
 .signal-sell        { color: #ff9999; font-size: 1.5rem; font-weight: bold; }
 .signal-strong-sell { color: #ff1a1a; font-size: 1.5rem; font-weight: bold; }
 .signal-hold        { color: #aaaaaa; font-size: 1.5rem; font-weight: bold; }
+
+/* ── iPhone 16 Plus 横向き（〜932px）スマホ全般 ── */
+@media screen and (max-width: 960px) {
+    /* 全体フォントサイズを下げる */
+    html, body, [class*="css"] {
+        font-size: 13px !important;
+    }
+    /* タイトル */
+    h1 { font-size: 1.3rem !important; }
+    h2 { font-size: 1.1rem !important; }
+    h3 { font-size: 1.0rem !important; }
+
+    /* シグナル文字 */
+    .signal-strong-buy, .signal-buy,
+    .signal-sell, .signal-strong-sell, .signal-hold {
+        font-size: 1.1rem !important;
+    }
+
+    /* サイドバーを細く */
+    section[data-testid="stSidebar"] {
+        width: 220px !important;
+        min-width: 220px !important;
+    }
+
+    /* メトリクスを小さく */
+    [data-testid="stMetricValue"] { font-size: 1.1rem !important; }
+    [data-testid="stMetricLabel"] { font-size: 0.75rem !important; }
+    [data-testid="stMetricDelta"] { font-size: 0.75rem !important; }
+
+    /* テーブル文字 */
+    [data-testid="stDataFrame"] { font-size: 0.75rem !important; }
+
+    /* ボタン */
+    .stButton > button { font-size: 0.85rem !important; padding: 6px 12px !important; }
+
+    /* 余白を詰める */
+    .block-container { padding: 0.5rem 0.8rem !important; }
+
+    /* caption */
+    .stCaption { font-size: 0.7rem !important; }
+}
 </style>
 """, unsafe_allow_html=True)
 
